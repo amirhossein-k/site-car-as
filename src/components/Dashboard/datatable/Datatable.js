@@ -1,30 +1,12 @@
 import "./datatable.scss";
-import { DataGrid } from "@mui/x-data-grid";
+
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listProductAction } from "../../../actions/productActions";
 import axios from "axios";
-import GridTable from "@nadavshaar/react-grid-table";
-import getColumns from "./getColumns";
-// ......................................................
-const gridStyle = { minHeight: 400 };
+import { Row, Col } from "react-bootstrap";
 // ............................
-const actionColumn = [
-  {
-    field: "action",
-    headerName: "Action",
-    width: 160,
-    renderCell: () => {
-      return (
-        <div className="cellAction">
-          <div className="viewButton">View</div>
-          <div className="deleteButton">Delete</div>
-        </div>
-      );
-    },
-  },
-];
-//.......................................................
+// ................................................
 
 const Datatable = () => {
   const columns = [
@@ -72,66 +54,35 @@ const Datatable = () => {
     },
   ];
   const dispatch = useDispatch();
-  const theRef = useRef();
+
   const productList = useSelector((state) => state.productList);
   const { product, loading } = productList;
-  const [inner, setInner] = useState("");
+
   useEffect(() => {
     dispatch(listProductAction());
-    setInner(theRef.current);
-    if (product) {
-    }
-  }, [dispatch]);
-
-  console.log(typeof inner.innerText);
-
+  }, []);
+  console.log("datatable");
   // ...................
 
   return (
     <div className="datatable">
       <div style={{ height: "100%", width: "100%" }}>
-        <table class="table table-hover table-dark">
-          <thead>
-            <tr>
-              {columns.map((item, index) => (
-                <th scope="col">{item.label}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              {product &&
-                product.map((item, index) => {
-                  return (
-                    <>
-                      <th ref={theRef}>1</th>
-                      {product.map((item, index) => {
-                        if (index === 1) {
-                          for (const [key, value] of Object.entries(item)) {
-                            if (key === "factory") {
-                              return <td>{value}</td>;
-                            }
-                          }
-                        }
+        <div className="row table-my">
+          {columns &&
+            columns.map((item, index) => {
+              return (
+                <Col>
+                  <Row className="title">{item.label}</Row>
+                  <Row className="value">
+                    {product &&
+                      product.map((item, index) => {
+                        <span>{item.namecar}</span>;
                       })}
-                    </>
-                  );
-                })}
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
+                  </Row>
+                </Col>
+              );
+            })}
+        </div>
       </div>
     </div>
   );

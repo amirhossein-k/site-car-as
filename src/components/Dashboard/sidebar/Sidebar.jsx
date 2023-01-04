@@ -77,6 +77,7 @@ const Sidebar = () => {
       icon: <HomeIcon className="icon" />,
     },
   ];
+  console.log("Sidebar");
   return (
     <div
       className="sidebar navbar navbar-expand-md"

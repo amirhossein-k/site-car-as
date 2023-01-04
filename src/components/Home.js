@@ -6,6 +6,7 @@ import Cards from "./Cards/Cards";
 import Header from "./Header/Header";
 import "../styles/Home.css";
 const Home = ({ userInfo }) => {
+  console.log("home");
   return (
     // <>
     <Container fluid className="gx-0">

@@ -22,6 +22,7 @@ const HomeDashboard = () => {
   useEffect(() => {
     dispatch(listProductAction());
   }, [dispatch]);
+  console.log("homeScreen");
   return (
     <Container
       fluid

@@ -19,7 +19,7 @@ export default function App() {
   const userLogin = useSelector((state) => state.userLogin);
   const { error, loading, userInfo } = userLogin;
 
-  console.log(userInfo);
+  console.log(userInfo, "app");
   return (
     // <BrowserRouter>
     <Container
@@ -30,7 +30,7 @@ export default function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home userInfo={userInfo} />} />
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoute userInfo={userInfo} />}>
           <Route path="/dashboard">
             <Route index element={<HomeDashboard />} />
