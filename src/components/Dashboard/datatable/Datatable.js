@@ -72,15 +72,19 @@ const Datatable = () => {
     },
   ];
   const dispatch = useDispatch();
-
+  const theRef = useRef();
   const productList = useSelector((state) => state.productList);
   const { product, loading } = productList;
-  // const [inner, setInner] = useState("");
+  const [inner, setInner] = useState("");
   useEffect(() => {
     dispatch(listProductAction());
+    setInner(theRef.current);
+    if (product) {
+    }
   }, [dispatch]);
-  const theRef = useRef();
-  const inner = theRef.current.innerText;
+
+  console.log(typeof inner.innerText);
+
   // ...................
 
   return (
@@ -102,7 +106,15 @@ const Datatable = () => {
                   return (
                     <>
                       <th ref={theRef}>1</th>
-                      {/* <td>{inner === "1" ? item[1].namecar : null}</td> */}
+                      {product.map((item, index) => {
+                        if (index === 1) {
+                          for (const [key, value] of Object.entries(item)) {
+                            if (key === "factory") {
+                              return <td>{value}</td>;
+                            }
+                          }
+                        }
+                      })}
                     </>
                   );
                 })}
