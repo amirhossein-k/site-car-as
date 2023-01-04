@@ -1,0 +1,61 @@
+.containerr {
+  display: flex;
+}
+main {
+  width: 100%;
+  padding: 20px;
+}
+.sidebar {
+  background: #000;
+  color: #fff;
+  height: 100vh;
+  width: 200px;
+  transition: all 0.5s;
+}
+.top_section {
+  display: flex;
+  align-items: center;
+  padding: 20px 3px;
+}
+.logo {
+  font-size: 30x;
+}
+.bars {
+  display: flex;
+  font-size: 25px;
+  margin-left: 20px;
+}
+.link {
+  display: flex;
+  color: #fff;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+}
+.link:hover {
+  background: lightsteelblue;
+  color: #000;
+  transition: all 0.5s;
+}
+.active {
+  background: lightsteelblue;
+  color: #000;
+}
+.icon .link_text {
+  font-size: 20px;
+}
+.border-left-blue {
+  border-left: 0.25rem solid blue !important;
+}
+.border-left-yellow {
+  border-left: 0.25rem solid yellow !important;
+}
+.border-left-red {
+  border-left: 0.25rem solid red !important;
+}
+.border-left-pink {
+  border-left: 0.25rem solid #e83e8c !important;
+}
+.border-left-black {
+  border-left: 0.25rem solid black !important;
+}

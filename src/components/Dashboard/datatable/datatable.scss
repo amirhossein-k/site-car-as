@@ -1,0 +1,62 @@
+.datatable{
+    height:639px;
+    padding:20px;
+    
+    .cellWithImg{
+        display:flex;
+        align-items:center;
+        
+        .cellImg{
+             width:40px;
+            height:40px;
+            border-radius:50px;
+            margin-right:20px;
+            object-fit:cover;
+            &:hover{
+                max-width:100px;
+                width:100%;
+                height:80%;
+                max-height:100px;
+            }
+        }
+    }
+}
+.status{
+        padding:5px;
+        border-radius:5px;
+        
+        &.Approved{
+            color:green;
+         background-color:rgba(0,128,0,0.151)
+        }
+        &.Pending{
+            color:goldenrod;
+         background-color:rgba(189,189,3,0.183)
+        }
+        
+    }
+.cellAction{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    .viewButton{
+        padding:2px 5px;
+        border-radius:5px;
+        color:darkblue;
+        border: 1px dotted rgba(0,0,139,0.596);
+        cursor:pointer;
+        &:hover{
+            background-color:rgba(0,0,139,0.596);
+        }
+    }
+    .deleteButton{
+        padding:2px 5px;
+        border-radius:5px;
+        color:crimson;
+        border: 1px dotted rgba(220,20,60,0.596);
+        cursor:pointer;
+        &:hover{
+            background-color: rgba(220,20,60,0.596);
+        }
+    }
+}
